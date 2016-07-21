@@ -27,6 +27,12 @@ func JavascriptTag(name string) template.HTML {
 	return generateRawHtml(paths, "", mtimes, javascriptTag)
 }
 
+func JavascriptTagWithParam(name string, param string) template.HTML {
+	assetUrl := "javascripts/" + name + ".js"
+	paths, mtimes := resolveAssetUrls(assetUrl)
+	return generateRawHtml(paths, param, mtimes, javascriptTag)
+}
+
 func StylesheetTagWithParam(name string, param string) template.HTML {
 	assetUrl := "stylesheets/" + name + ".css"
 	paths, mtimes := resolveAssetUrls(assetUrl)
